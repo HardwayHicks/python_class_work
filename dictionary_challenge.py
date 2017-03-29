@@ -40,17 +40,18 @@ vocabulary = {"QUIT": "Q",
 
 loc = 1
 while True:
-    availableExits = ", ".join(locations[loc].keys())
+    availableExits = ", ".join(locations[loc]["exits"].keys())
+    #  to use a secondary key in a dictionary it looks like  this: dictionary_name[first_key][secondary_key]
 
-    print(locations[loc])
+    print(locations[loc]["desc"])
 
     if loc == 0:
         break
     else:
-        allExits = location[loc].copy()
-        allExits.update(locations[loc["namedExits"]])
+        allExits = locations[loc]["exits"].copy()
+        allExits.update(locations[loc]["namedExits"])
 
-    direction = input("Available exits are " + availableExits).upper()
+    direction = input("Available exits are " + availableExits + ": ").upper()
     print()
 
     # Parse the user input, using our vocabulary dictionary if necessary
