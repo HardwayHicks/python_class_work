@@ -13,6 +13,3 @@ if i != '.':
     placeCount += 1
     print("there are {0} at the {1} mark".format(digits, placeCount))
 
-
-
-
