@@ -24,5 +24,4 @@ end_time = my_timer()
 print("started at " +time.strftime("%X", time.localtime(start_time)))
 print("ended at " + time.strftime("%X", time.localtime(end_time)))
 
-print("your reaction time was {} seconds".format(end_time - start_time
-                                                 ))
+print("your reaction time was {} seconds".format(end_time - start_time))
