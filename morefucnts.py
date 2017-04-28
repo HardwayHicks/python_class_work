@@ -16,8 +16,8 @@ def parabola(page, size):
 # and defaults to red if no color is chosen.
 
 
-def circle(page, radius, g, h):
-    page.create_oval(g + radius, h + radius, g - radius, h - radius, outline="red")
+def circle(page, radius, g, h, color="red"):
+    page.create_oval(g + radius, h + radius, g - radius, h - radius, outline=color)
     # for x in range(g * 100, (g + radius) * 100):
     #     x /= 100
     #     y = h + (math.sqrt(radius ** 2 - ((x-g) ** 2)))
@@ -54,10 +54,10 @@ draw_axis(canvas)
 
 parabola(canvas, 100)
 parabola(canvas, 200)
-circle(canvas, 100, 100, 100)
-circle(canvas, 100, 100, -100)
-circle(canvas, 100, -100, 100)
-circle(canvas, 100, -100, -100)
+circle(canvas, 100, 100, 100, "green")
+circle(canvas, 100, 100, -100, "yellow")
+circle(canvas, 100, -100, 100, "black")
+circle(canvas, 100, -100, -100, "blue")
 circle(canvas, 10, 30, 30)
 circle(canvas, 10, 30, -30)
 circle(canvas, 10, -30, 30)
@@ -66,3 +66,8 @@ circle(canvas, 30, 0, 0)
 
 mainwindow.mainloop()
 
+
+# well since i'm here, might as well type out my daily schedule for now
+# 600 wake up, at the pool before 7, swim for a minimum of 45 minutes, home by 8, spend time with girls
+# having breakfast, leave to go to coffee shop or get in the pod by 10.
+# the work schedule needs to be 25 on, 5 off, on the 4th break take 25
