@@ -114,6 +114,8 @@ def opening_hand():
 def new_game():
     global player_card_frame
     global dealer_card_frame
+    global dealer_score_label
+    global player_score_label
     player_card_frame.destroy()
     dealer_card_frame.destroy()
     dealer_score_label = tkinter.IntVar()
@@ -129,12 +131,21 @@ def new_game():
     # embedded frame to hold the card images
     player_card_frame = tkinter.Frame(card_frame, background="green")
     player_card_frame.grid(row=2, column=1, sticky='ew', rowspan=2)
-    deal_player()
-    dealer_hand.append(deal_card(dealer_card_frame))
-    dealer_score_label.set(score_hand(dealer_hand))
-    deal_player()
+    player_hand.clear()
+    dealer_hand.clear()
+
+    result_text.set("")
+
+    opening_hand()
 
 
+def shuffle():
+    random.shuffle(deck)
+
+
+def play():
+    opening_hand()
+    mainWindow.mainloop()
 
 
 mainWindow = tkinter.Tk()
@@ -175,20 +186,24 @@ player_button.grid(row=0, column=1)
 quit_button = tkinter.Button(button_frame, text='new game', command=new_game)
 quit_button.grid(row=0, column=2)
 
+shuffle_button = tkinter.Button(button_frame, text='shuffle', command=shuffle)
+shuffle_button.grid(row=0, column=3)
+
 # load cards
 cards = []
 load_images(cards)
 # print(cards)
 #create a new deck of cards and shuffle them
-deck = list(cards)
+deck = list(cards) + list(cards)
 random.shuffle(deck)
 
 # create the list to store the dealer's and players hand
 dealer_hand = []
 player_hand = []
 
-opening_hand()
+# opening_hand()
 
 
+if __name__ == "__main__":
+    play()
 
-mainWindow.mainloop()
